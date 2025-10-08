@@ -1,0 +1,20 @@
+
+
+services:
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "${NODE_PORT}:3000"
+    environment:
+      - PORT=${NODE_PORT}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+
+volumes:
+  - /home/tanisha/assmnt/docker-test/app:/usr/src/app       
+  - /home/tanisha/assmnt/docker-test/data:/usr/src/app/data 
