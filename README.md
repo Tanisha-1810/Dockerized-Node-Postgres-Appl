@@ -192,10 +192,13 @@ volumes:
 
 
 Then, set DB_HOST=db in your .env file.
+
 Docker Compose will automatically create a private network where web can talk to db.
 
 📸 Demo Output
+
 App running on port 3000
+
 Connected to PostgreSQL! Server time: 2025-10-08 12:34:56.789
 
 
