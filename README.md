@@ -24,18 +24,29 @@ Containerization	Docker
 Orchestration	Docker Compose
 Build Optimization	Multi-stage Docker builds
 Configuration	Environment Variables (.env)
+
 📁 Project Structure
+
 dockerized-node-postgres/
+
 │
 ├── app/
+
 │   ├── Dockerfile
+
 │   ├── index.js
+
 │   ├── package.json
+
 │   └── package-lock.json
+
 │
 ├── docker-compose.yml
+
 ├── .env
+
 └── README.md
+
 
 ⚙️ Prerequisites
 
@@ -47,8 +58,7 @@ Before running this project, make sure you have:
 🧩 Docker Compose
  installed
 
-Optional: PostgreSQL CLI
- for database testing
+Optional: PostgreSQL CLI for database testing
 
 🔧 Setup & Installation
 
@@ -59,6 +69,7 @@ git clone https://github.com/Tanisha-1810/Dockerized-Node-Postgres-Appl.git
 cd dockerized-node-postgres
 
 2️⃣ Create a .env file
+
 NODE_PORT=3000
 DB_HOST=your_database_host
 DB_PORT=5432
@@ -71,6 +82,7 @@ DB_NAME=mydatabase
 If you prefer to run PostgreSQL inside Docker, you can extend docker-compose.yml (see below 👇).
 
 3️⃣ Build and run the containers
+
 docker compose up --build
 
 4️⃣ Access the app
@@ -90,17 +102,28 @@ The Dockerfile uses multi-stage builds to keep the final image minimal:
 
 # Build stage
 FROM node:18-alpine AS build
+
 WORKDIR /app
+
 COPY package*.json ./
+
 RUN npm ci
+
 COPY . .
 
+
 # Production stage
+
 FROM node:18-alpine AS prod
+
 WORKDIR /app
+
 COPY --from=build /app /app
+
 EXPOSE 3000
+
 CMD ["npm", "start"]
+
 
 
 Why multi-stage?
