@@ -51,8 +51,11 @@ Optional: PostgreSQL CLI
  for database testing
 
 🔧 Setup & Installation
+
 1️⃣ Clone the repository
-git clone https://github.com/your-username/dockerized-node-postgres.git
+
+git clone https://github.com/Tanisha-1810/Dockerized-Node-Postgres-Appl.git
+
 cd dockerized-node-postgres
 
 2️⃣ Create a .env file
